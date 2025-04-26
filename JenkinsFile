@@ -5,11 +5,16 @@ pipeline {
     }
     stages {
         stage('Prepare'){
+            environment {
+                APP = credentials("root_root")
+            }
             steps {
                 echo("Key : ${KEY}")
                 echo("Start Job : ${env.JOB_NAME}")
                 echo("Build Number : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
+                echo("APP user : ${APP_USR}")
+                echo("APP pass : ${APP_PSW}")
             }
         }
         stage('Build') {
