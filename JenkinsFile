@@ -4,8 +4,8 @@ pipeline {
         KEY = "value"
     }
     options {
-        disableConcurentBuilds()
-        timeout(time: 10, unit: 'MINUTES')
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'SECONDS')
     }
     stages {
         stage('Prepare'){
