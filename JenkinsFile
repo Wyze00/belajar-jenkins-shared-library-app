@@ -1,8 +1,12 @@
 pipeline {
     agent any
+    environment {
+        KEY = "value"
+    }
     stages {
         stage('Prepare'){
             steps {
+                echo("Key : ${KEY}")
                 echo("Start Job : ${env.JOB_NAME}")
                 echo("Build Number : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
