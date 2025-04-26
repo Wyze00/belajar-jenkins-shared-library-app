@@ -14,7 +14,7 @@ pipeline {
                 echo("Build Number : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
                 echo("APP user : ${APP_USR}")
-                echo("APP pass : ${APP_PSW}")
+                sh("echo 'App pass : $APP_PSW' > 'rahasia.txt'")
             }
         }
         stage('Build') {
