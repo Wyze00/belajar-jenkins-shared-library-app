@@ -3,6 +3,10 @@ pipeline {
     environment {
         KEY = "value"
     }
+    options {
+        disableConcurentBuilds()
+        timeout(time: 10, unit: 'MINUTES')
+    }
     stages {
         stage('Prepare'){
             environment {
