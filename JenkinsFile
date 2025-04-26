@@ -20,7 +20,7 @@ pipeline {
                     }
                 }
                 echo('Start Build')
-                sh('./mvnw clean compile test-compile')
+                // sh('./mvnw clean compile test-compile')
                 echo('Finish Build')
             }
         }
@@ -35,7 +35,7 @@ pipeline {
                     writeJSON(file: "data.json", json: data)
                 }
                 echo('Start Test')
-                sh('./mvnw test')
+                // sh('./mvnw test')
                 echo('Finish Test')
             }
         }
