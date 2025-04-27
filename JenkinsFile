@@ -15,6 +15,20 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
     }
     stages {
+        stage('Preparation') {
+            stages {
+                stage('Prepare Java') {
+                    steps {
+                        echo("Prepare Java")
+                    }
+                }
+                stage('Prepare Maven') {
+                    steps {
+                        echo("Prepare Maven")
+                    }
+                }
+            }
+        }
         stage('Parameter') {
             steps {
                 echo("Hello ${params.NAME}")
