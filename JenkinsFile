@@ -3,12 +3,28 @@ pipeline {
     environment {
         KEY = "value"
     }
+    parameters {
+        string(name: "NAME", defaultValue: "Guess", description: "what is your name")
+        text(name: "DESCRIPTION", defaultValue: "Guess", description: "what is your name")
+        booleanParam(name: "DEPLOY", defaultValue: false, description: "what is your name")
+        choice(name: "SOCIAL", choices: ["instagram", "facebook"], description: "what is your name")
+        password(name: "SECRET", defaultValue: "", description: "what is your name")
+    }
     options {
         disableConcurrentBuilds()
         timeout(time: 10, unit: 'SECONDS')
     }
     stages {
-        stage('Prepare'){
+        stage('Parameter') {
+            steps {
+                echo("Hello ${params.NAME}")
+                echo("Hello ${params.DESCRIPTION}")
+                echo("Hello ${params.SOCIAL}")
+                echo("Hello ${params.DEPLOY}")
+                echo("Hello ${params.SECRET}")
+            }
+        }
+        stage('Prepare') {
             environment {
                 APP = credentials("root_root")
             }
