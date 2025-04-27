@@ -120,6 +120,15 @@ pipeline {
                 }
             }
             steps {
+
+                withCredentials([usernamePassword(
+                    credentialsId: "root_root",
+                    usernameVariable: "USER"
+                    passwordVariable: "pass"
+                )]){
+                    sh('echo "Release with -u $USER -p $PASS" > "release.txt"')
+                }
+
                 echo("Rilis")
             }
         }
