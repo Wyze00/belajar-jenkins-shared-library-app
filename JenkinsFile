@@ -27,10 +27,13 @@ pipeline {
                 }
             }
         }
-        stage("Maven Compile"){
+        stage("Hello Person"){
             steps {
                 script {
-                    maven(["clean", "compile", "test"])
+                    hello.person([
+                        firstname: "Wyze",
+                        lastname: "root"
+                    ])
                 }
             }
         }
