@@ -69,9 +69,12 @@ pipeline {
                 message "Can we deploy"
                 ok "Yes"
                 submitter "w"
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ["dev", "prod"], description: "pilih target env")
+                }
             }
             steps {
-                echo('Hello Deploy')
+                echo('Hello ${TARGET_ENV}')
             }
         }
     }
