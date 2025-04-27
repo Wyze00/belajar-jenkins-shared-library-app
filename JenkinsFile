@@ -65,6 +65,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            input {
+                message "Can we deploy"
+                ok "Yes"
+                submitter "w"
+            }
             steps {
                 echo('Hello Deploy')
             }
