@@ -123,8 +123,8 @@ pipeline {
 
                 withCredentials([usernamePassword(
                     credentialsId: "root_root",
-                    usernameVariable: "USER"
-                    passwordVariable: "pass"
+                    usernameVariable: "USER",
+                    passwordVariable: "PASS"
                 )]){
                     sh('echo "Release with -u $USER -p $PASS" > "release.txt"')
                 }
